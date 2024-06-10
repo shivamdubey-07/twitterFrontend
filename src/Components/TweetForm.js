@@ -38,7 +38,7 @@ const TweetForm = () => {
     const formData = new FormData();
     formData.append('content', tweetText);
     formData.append('file', selectedMedia);
-   const res= await axios.post('https://twitterbackend-7nga.onrender.com/api/user/post', formData, {
+   const res= await axios.post('http://localhost:9000/api/user/post', formData, {
     headers: {
       'Content-Type':'multipart/form-data',
       Authorization: `${Cookies.get('token')}`

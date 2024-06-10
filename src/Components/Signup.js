@@ -26,7 +26,7 @@ function Signup() {
         const endpoint = formType === 'Signup' ? 'register' : (formType === 'otp' ? 'otp' : 'login');
         const bodyData = formType === 'Signup' ? { name, email, username, password } : (formType === 'otp' ? { otp } : { username, password });
         try {
-            const response = await fetch(`https://twitterbackend-7nga.onrender.com/api/${endpoint}`, {
+            const response = await fetch(`http://localhost:9000/api/${endpoint}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(bodyData),

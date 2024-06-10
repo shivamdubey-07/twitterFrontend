@@ -19,7 +19,7 @@ const Testing = () => {
     formData.append('file', file);
 
     try {
-      const response = await axios.post('https://twitterbackend-7nga.onrender.com/api/user/post', formData, {
+      const response = await axios.post('http://localhost:9000/api/user/post', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

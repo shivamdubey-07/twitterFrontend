@@ -40,7 +40,7 @@ const handleChange = (event) => {
     
     try {
      
-      const res = await axios.post('https://twitterbackend-7nga.onrender.com/api/user/delete/',{ id: id }, {
+      const res = await axios.post('http://localhost:9000/api/user/delete/',{ id: id }, {
         headers: {
           'Content-Type': 'application/json',
           "Authorization": `${Cookies.get('token')}`
@@ -74,7 +74,7 @@ const handleSubmit=async(e)=>{
     text !==''?formData.append('content', text):setText('')
     selectedMedia !==null?formData.append('file', selectedMedia):setSelectedMedia(null)
    
-      const response = await axios.patch("https://twitterbackend-7nga.onrender.com/api/user/updateTweet", formData,{
+      const response = await axios.patch("http://localhost:9000/api/user/updateTweet", formData,{
         headers: {
           'Content-Type':'multipart/form-data',
           "Authorization": `${Cookies.get("token")}`, // Add Bearer before token

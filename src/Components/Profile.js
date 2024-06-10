@@ -14,17 +14,16 @@ export const Profile = () => {
   const [toggle,setToggle]=useState(false)
   const [name, setName] = useState('');
   const [bio, setBio] = useState('');
-  // const [location, setLocation] = useState('');
   const [selectedMedia,setSelectedMedia]=useState(null)
   const navigate=useNavigate()
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log(Cookies.get("token"));
-        const response = await axios.get("https://twitterbackend-7nga.onrender.com/api/user/myProfile", {
+        console.log("the token is",Cookies.get("token"));
+        const response = await axios.get("http://localhost:9000/api/user/myProfile", {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `${Cookies.get("token")}`, // Add Bearer before token
+            "Authorization": `${Cookies.get("token")}`, 
           },
         });
         let result=response.data[0];
@@ -48,7 +47,6 @@ export const Profile = () => {
     if (fieldName === 'name') setName(value);
    
     if (fieldName === 'bio') setBio(value);
-    // if (fieldName === 'location') setLocation(value);
 
 };
 
@@ -68,11 +66,10 @@ const handleSubmit = async (e) => {
     bio !==''?formData.append('bio', bio):setBio('')
     selectedMedia !==null?formData.append('file', selectedMedia):setSelectedMedia(null)
    
-    //  console.log(Cookies.get('token'),"yaha tk nhi pahuch ppa rha hai")
-      const response = await axios.patch("https://twitterbackend-7nga.onrender.com/api/user/profileUpdate", formData,{
+      const response = await axios.patch("http://localhost:9000/api/user/profileUpdate", formData,{
         headers: {
           'Content-Type':'multipart/form-data',
-          "Authorization": `${Cookies.get("token")}`, // Add Bearer before token
+          "Authorization": `${Cookies.get("token")}`, 
         },
       });
 
@@ -88,7 +85,6 @@ const handleSubmit = async (e) => {
 };
 
 
-// html yaha se hai
    return (
 <div>
 
@@ -115,14 +111,7 @@ const handleSubmit = async (e) => {
                             onChange={handleChange}
                             placeholder="Bio"
                         />
-                        {/* <input
-                            className="p-2 rounded-md mt-4"
-                            type="text"
-                            name="location"
-                            value={location}
-                            onChange={handleChange}
-                            placeholder="Location"
-                        /> */}
+                     
                         <span className="text-white mt-4">Choose Profile Photo</span>
                         <div >
           <input
@@ -146,7 +135,6 @@ const handleSubmit = async (e) => {
             )}
 
      {!toggle && (<div className="relative bg-black h-screen text-white">
-       {/* Top image */}
        <div className="h-60">
          <img
            src="ytb.png"
@@ -155,7 +143,6 @@ const handleSubmit = async (e) => {
          />
        </div>
  
-       {/* Bottom left image */}
        <div className="absolute top-40 ml-4 mb-10 ">
          <img
            src={post.profilePicture}

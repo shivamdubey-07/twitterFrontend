@@ -17,7 +17,7 @@ const SearchComponent = () => {
     console.log(`${Cookies.get("token")}`, searchQuery);
     try {
       const res = await axios.post(
-        "https://twitterbackend-7nga.onrender.com/api/user/searchUser",
+        "http://localhost:9000/api/user/searchUser",
         { searchQuery: searchQuery },
         {
           headers: {

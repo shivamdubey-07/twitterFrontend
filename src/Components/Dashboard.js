@@ -12,17 +12,17 @@ import { useNavigate } from "react-router-dom";
 export function Dashboard() {
   const navigate = useNavigate();
   const tweetFormRef = useRef(null);
-  const [posts, setPosts] = useState([]); // Initialize as an empty array
+  const [posts, setPosts] = useState([]); 
   
   useEffect(() => {
     const fetchData = async () => {
       try {
         tweetFormRef.current.scrollIntoView({ behavior: "smooth" });
         console.log(Cookies.get("token"));
-        const response = await axios.get("https://twitterbackend-7nga.onrender.com/api/user/allFollowingPosts", {
+        const response = await axios.get("http://localhost:9000/api/user/allFollowingPosts", {
           headers: {
             "Content-Type": "application/json",
-            "Authorization": `${Cookies.get("token")}`, // Add Bearer before token
+            "Authorization": `${Cookies.get("token")}`, 
           },
         });
         let result = Object.values(response.data).flat();

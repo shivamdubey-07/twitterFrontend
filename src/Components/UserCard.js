@@ -18,8 +18,8 @@ export default function UserCard({ username, name, profilePicture, follow }) {
     formData.append('first', username);
     try {
       const url = newFollowStatus
-        ? 'https://twitterbackend-7nga.onrender.com/api/user/follow'
-        : 'https://twitterbackend-7nga.onrender.com/api/user/unfollow';
+        ? 'http://localhost:9000/api/user/follow'
+        : 'http://localhost:9000/api/user/unfollow';
       const res = await axios.patch(url, formData, {
         headers: {
           'Content-Type': 'application/json',
