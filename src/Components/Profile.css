@@ -1,0 +1,9 @@
+.form-div {
+    position: fixed;
+   width: 1000%;
+   height: 100%;
+    background-color: black;
+    
+    /* Add other styles for your div here */
+  }
+

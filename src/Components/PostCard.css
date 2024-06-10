@@ -1,0 +1,53 @@
+*{
+    margin: 0;
+    padding:0;
+   
+}
+
+.post-card {
+    display: flex;
+    background-color: black;
+    color: white;
+    padding: 10px;
+   
+   
+    border-bottom: 1px grey solid;
+    border-color: rgb(17, 24, 39);
+}
+.post-card:hover{
+    background-color:  rgb(14, 14, 14);
+}
+
+.post-card .profile-image {
+    width: 40px; /* Adjust as needed */
+    height: 40px; /* Adjust as needed */
+    border: 1px solid black;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.post-card .profile-image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.post-card .post-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card .post-header {
+    display: flex;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.post-card .post-description {
+    margin-top: 5px;
+}
+
+.post-card .post-photo {
+    margin-top: 10px;
+}
